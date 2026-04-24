@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useStore } from '@/store/useStore';
-import { Users } from 'lucide-react';
 
 export function SplashScreen() {
   const { setCurrentScreen, isAuthenticated } = useStore();
@@ -65,14 +64,15 @@ export function SplashScreen() {
           }}
           className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center shadow-2xl mb-8"
         >
-          <motion.div
-            animate={{ 
-              scale: [1, 1.1, 1],
+          <motion.img
+            src="/logo.jpg"
+            alt="DJAK-TOUR Logo"
+            animate={{
+              scale: [1, 1.08, 1],
             }}
             transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <Users className="w-16 h-16 text-[#1B5E20]" strokeWidth={2} />
-          </motion.div>
+            className="w-20 h-20 object-contain"
+          />
         </motion.div>
 
         {/* اسم التطبيق */}
@@ -82,7 +82,7 @@ export function SplashScreen() {
           transition={{ delay: 0.5 }}
           className="text-5xl font-bold text-white mb-4 tracking-wide"
         >
-          جمعية
+          DJAK-TOUR
         </motion.h1>
 
         {/* الشعار */}
@@ -92,7 +92,7 @@ export function SplashScreen() {
           transition={{ delay: 0.7 }}
           className="text-xl text-white/90 font-medium"
         >
-          ادخر معاً... ننمو معاً
+          جاك التور
         </motion.p>
 
         {/* مؤشر التحميل */}
@@ -127,7 +127,7 @@ export function SplashScreen() {
         transition={{ delay: 1.2 }}
         className="absolute bottom-8 text-white/60 text-sm"
       >
-        منصة الإدخار الجماعي
+        DJAK-TOUR
       </motion.p>
     </motion.div>
   );

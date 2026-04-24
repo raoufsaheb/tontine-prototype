@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useStore } from '@/store/useStore';
-import { Phone, Lock, Eye, EyeOff, ArrowLeft, Users } from 'lucide-react';
+import { Phone, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { ErrorMessage } from '@/components/common/ErrorMessage';
 
 export function LoginScreen() {
@@ -50,7 +50,7 @@ export function LoginScreen() {
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
           className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-xl mb-6"
         >
-          <Users className="w-12 h-12 text-[#1B5E20]" />
+          <img src="/logo.jpg" alt="DJAK-TOUR Logo" className="w-16 h-16 object-contain" />
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export function LoginScreen() {
           transition={{ delay: 0.3 }}
           className="text-white/80"
         >
-          مرحباً بك مجدداً في جمعية
+          مرحباً بك مجدداً في DJAK-TOUR
         </motion.p>
       </div>
 

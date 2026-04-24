@@ -230,11 +230,19 @@ export const useStore = create<AppState & AppActions>()(
       // إدارة الجمعيات
       getAvailableJamiyas: () => {
         const { jamiyas } = get();
-        // عرض جميع الجمعيات المفتوحة المتاحة للانضمام
-        return jamiyas.filter(j => 
-          (j.status === 'open' || j.status === 'guarantee_month') && 
+        // عرض الجمعيات المتاحة للانضمام + جمعية مكتملة مخصصة لمسار المحاكاة
+        const simulationJamiyas = jamiyas.filter(j =>
+          j.status === 'completed' &&
+          j.currentMembers === j.maxMembers &&
+          j.name === 'المستقبل الواعد'
+        );
+
+        const joinableJamiyas = jamiyas.filter(j =>
+          (j.status === 'open' || j.status === 'guarantee_month') &&
           j.currentMembers < j.maxMembers
         );
+
+        return [...simulationJamiyas, ...joinableJamiyas];
       },
       
       getJamiyaById: (id) => {
@@ -372,7 +380,7 @@ export const useStore = create<AppState & AppActions>()(
             currentCycle: jamiya.currentCycle,
             totalCycles: jamiya.duration,
             nextPaymentDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-            currentReceiverName: 'شهر الضمان',
+            currentReceiverName: 'حاجي ايناس',
             isCurrentReceiver: false,
             hasPaidThisCycle: false,
           };

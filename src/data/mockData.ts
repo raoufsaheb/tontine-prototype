@@ -111,6 +111,18 @@ export const mockUsers: User[] = [
     createdAt: '2025-02-25T17:00:00Z',
     isVerified: false,
   },
+  {
+    id: 'user_9',
+    phone: '+213551234567',
+    email: 'riad.belkacem@email.com',
+    password: 'Riad789!',
+    fullName: 'رياض بلقاسم',
+    incomeLevel: 'high',
+    kycStatus: 'verified',
+    totalSavings: 420000,
+    createdAt: '2024-03-10T10:00:00Z',
+    isVerified: true,
+  },
 ];
 
 // الجمعيات الوهمية
@@ -457,6 +469,27 @@ export const mockJamiyas: Jamiya[] = [
       { userId: 'user_4', userName: 'أمينة براني', position: 10, hasReceived: false, isCurrentReceiver: false },
     ],
   },
+  {
+    id: 'jamiya_16',
+    name: 'المستقبل الواعد',
+    monthlyAmount: 50000,
+    duration: 5,
+    maxMembers: 5,
+    currentMembers: 5,
+    status: 'completed',
+    currentCycle: 5,
+    incomeLevel: 'high',
+    progress: 100,
+    description: 'جمعية مكتملة جاهزة لمرحلة ما بعد الاكتمال - شيكات وفرز',
+    createdAt: '2024-10-01T00:00:00Z',
+    members: [
+      { userId: 'user_9', userName: 'رياض بلقاسم', position: 1, hasReceived: true, receivedAt: '2024-11-01T00:00:00Z', isCurrentReceiver: false },
+      { userId: 'user_2', userName: 'فاطمة بن علي', position: 2, hasReceived: true, receivedAt: '2024-12-01T00:00:00Z', isCurrentReceiver: false },
+      { userId: 'user_6', userName: 'سارة مرابط', position: 3, hasReceived: true, receivedAt: '2025-01-01T00:00:00Z', isCurrentReceiver: false },
+      { userId: 'user_1', userName: 'أحمد قادر', position: 4, hasReceived: true, receivedAt: '2025-02-01T00:00:00Z', isCurrentReceiver: false },
+      { userId: 'user_4', userName: 'أمينة براني', position: 5, hasReceived: true, receivedAt: '2025-03-01T00:00:00Z', isCurrentReceiver: false },
+    ],
+  },
 ];
 
 // العضويات النشطة الوهمية
@@ -471,7 +504,7 @@ export const mockActiveMemberships: ActiveMembership[] = [
     currentCycle: 1,
     totalCycles: 10,
     nextPaymentDate: '2025-03-01T00:00:00Z',
-    currentReceiverName: 'شهر الضمان',
+    currentReceiverName: 'حاجي ايناس',
     isCurrentReceiver: false,
     hasPaidThisCycle: true,
   },
@@ -502,6 +535,20 @@ export const mockActiveMemberships: ActiveMembership[] = [
     currentReceiverName: 'سارة مرابط',
     isCurrentReceiver: true,
     hasPaidThisCycle: false,
+  },
+  {
+    id: 'membership_4',
+    userId: 'user_9',
+    jamiyaId: 'jamiya_16',
+    jamiyaName: 'المستقبل الواعد',
+    monthlyAmount: 50000,
+    position: 1,
+    currentCycle: 5,
+    totalCycles: 5,
+    nextPaymentDate: '2025-03-01T00:00:00Z',
+    currentReceiverName: 'الجميع استلموا',
+    isCurrentReceiver: false,
+    hasPaidThisCycle: true,
   },
 ];
 
@@ -661,6 +708,15 @@ export const mockNotifications: Notification[] = [
     isRead: false,
     createdAt: '2024-12-01T09:00:00Z',
   },
+  {
+    id: 'notif_8',
+    userId: 'user_9',
+    title: 'جمعية مكتملة - إجراءات التأكيد',
+    message: 'اكتملت جمعية المستقبل الواعد. يرجى إكمال إجراءات تأكيد الضمان (الشيك + وثيقة الالتزام)',
+    type: 'success',
+    isRead: false,
+    createdAt: '2025-03-01T00:00:00Z',
+  },
 ];
 
 // بيانات المستخدم الحالي (للتجربة)
@@ -698,7 +754,7 @@ export const formatTime = (dateString: string): string => {
 export const getJamiyaStatusText = (status: string): string => {
   const statusMap: Record<string, string> = {
     'open': 'مفتوحة',
-    'guarantee_month': 'شهر الضمان',
+    'guarantee_month': 'حاجي ايناس',
     'active': 'نشطة',
     'completed': 'مكتملة',
     'under_review': 'قيد المراجعة',

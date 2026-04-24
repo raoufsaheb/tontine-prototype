@@ -61,9 +61,14 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
   }
   
   /* تحسينات للهاتف */
@@ -98,6 +103,7 @@
   .app-container {
     @apply max-w-md mx-auto min-h-screen bg-background relative;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
   }
   
   /* بطاقات التطبيق */

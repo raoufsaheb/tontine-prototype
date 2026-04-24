@@ -19,6 +19,10 @@ import { NotificationsScreen } from '@/components/screens/NotificationsScreen';
 import { ProfileScreen } from '@/components/screens/ProfileScreen';
 import { CompletionScreen } from '@/components/screens/CompletionScreen';
 import { CreateJamiyaScreen } from '@/components/screens/CreateJamiyaScreen';
+import { FicheDePaieScreen } from '@/components/screens/FicheDePaieScreen';
+import { ChequeScanScreen } from '@/components/screens/ChequeScanScreen';
+import { EngagementScanScreen } from '@/components/screens/EngagementScanScreen';
+import { SortingScreen } from '@/components/screens/SortingScreen';
 
 // المكونات المشتركة
 import { BottomNav } from '@/components/common/BottomNav';
@@ -78,6 +82,14 @@ function App() {
         return <CompletionScreen />;
       case 'create_jamiya':
         return <CreateJamiyaScreen />;
+      case 'fiche_paie':
+        return <FicheDePaieScreen />;
+      case 'cheque':
+        return <ChequeScanScreen />;
+      case 'engagement':
+        return <EngagementScanScreen />;
+      case 'sorting':
+        return <SortingScreen />;
       default:
         return <DashboardScreen />;
     }

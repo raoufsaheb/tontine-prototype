@@ -6,14 +6,13 @@ describe('SplashScreen', () => {
   it('renders correctly', () => {
     render(<SplashScreen />);
     
-    expect(screen.getByText('جمعية')).toBeInTheDocument();
-    expect(screen.getByText('ادخر معاً... ننمو معاً')).toBeInTheDocument();
+    expect(screen.getByText('DJAK-TOUR')).toBeInTheDocument();
   });
 
   it('has gradient background', () => {
     render(<SplashScreen />);
     
-    const container = screen.getByText('جمعية').parentElement?.parentElement;
+    const container = screen.getByText('DJAK-TOUR').parentElement?.parentElement;
     expect(container).toHaveClass('bg-gradient-to-br');
   });
 });

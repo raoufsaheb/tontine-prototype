@@ -35,6 +35,9 @@ export function JamiyaDetailsScreen() {
 
   const isFull = selectedJamiya.currentMembers >= selectedJamiya.maxMembers;
   const canJoin = selectedJamiya.status === 'open' && !isFull;
+  const canRunSimulationFlow =
+    selectedJamiya.status === 'completed' &&
+    selectedJamiya.currentMembers === selectedJamiya.maxMembers;
 
   return (
     <motion.div
@@ -229,16 +232,27 @@ export function JamiyaDetailsScreen() {
         {/* زر الحجز */}
         <div className="pt-4 pb-8">
           <motion.button
-            onClick={handleBook}
-            disabled={!canJoin}
+            onClick={() => {
+              if (canRunSimulationFlow) {
+                setCurrentScreen('cheque');
+                return;
+              }
+              handleBook();
+            }}
+            disabled={!canJoin && !canRunSimulationFlow}
             whileTap={{ scale: 0.98 }}
             className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 ${
-              canJoin
+              canJoin || canRunSimulationFlow
                 ? 'bg-[#1B5E20] text-white shadow-[#1B5E20]/30'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
-            {canJoin ? (
+            {canRunSimulationFlow ? (
+              <>
+                <span>ابدأ محاكاة الشيك والالتزام</span>
+                <ArrowRight className="w-5 h-5" />
+              </>
+            ) : canJoin ? (
               <>
                 <span>احجز مكانك الآن</span>
                 <ArrowRight className="w-5 h-5" />

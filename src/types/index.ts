@@ -174,6 +174,16 @@ export interface AppState {
   resetData: () => void;
 }
 
+// عضو التقويم
+export interface CalendarMember {
+  position: number;
+  name: string;
+  userId: string;
+  amount: number;
+  isGuarantee?: boolean;
+  isCurrentUser?: boolean;
+}
+
 // أنواع الشاشات
 export type ScreenType = 
   | 'splash'
@@ -195,7 +205,12 @@ export type ScreenType =
   | 'completion'
   | 'success'
   | 'error'
-  | 'create_jamiya';
+  | 'create_jamiya'
+  | 'fiche_paie'
+  | 'cheque'
+  | 'engagement'
+  | 'sorting'
+  | 'calendar_result';
 
 // مستويات الدخل مع القيم
 export const INCOME_LEVELS = {
